@@ -8,10 +8,11 @@ import {
 import {
     TouchableOpacity
 }from 'react-native'
+import { tsPropertySignature } from '@babel/types'
 
 export default props => {
     return(
-        <TouchableOpacity>
+        <TouchableOpacity onPress={props.onPress}>
             <Container>
                 <Text>{props.text}</Text>
             </Container>

@@ -6,9 +6,18 @@ import ShowPdf from './pages/showPdf'
 
 const Routes = createAppContainer(
     createSwitchNavigator({
-        Login,
-        Main,
-        ShowPdf
+        Login:{
+            screen: Login
+        },
+        Main:{
+            screen: Main
+        },
+        ShowPdf:{
+            screen: ShowPdf
+        }
+    }, 
+    {
+        initialRouteName: "Login"
     })
 )
 

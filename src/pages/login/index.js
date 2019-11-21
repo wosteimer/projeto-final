@@ -55,7 +55,9 @@ export default props => {
                     <TextField placeHolder="Login" keyboardType="email-address"/>
                     <TextField placeHolder="Senha" password={true}/>
                     <TextButton text="Esqueceu a senha?"/>
-                    <Button text="entrar"/>
+                    <Button 
+                        text="entrar"
+                        onPress={()=> props.navigation.navigate("Main")}/>
                 </ContentContainer>
             </Container>
         </TouchableWithoutFeedback>

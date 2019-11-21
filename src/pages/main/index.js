@@ -1,14 +1,16 @@
 import React from 'react'
 
+import  SearchInput from '../../components/searchInput'
+import  CheckBox from '../../components/checkBox'
 import { Container } from './styles'
 
-import {
-    TextInput,
-}from 'react-native'
 
 export default props => {
     return(
-        <Container/>
+        <Container>
+            <SearchInput placeHolder="Pesquisar"/>
+            <CheckBox/>
+        </Container>
     )
 }
 
