@@ -13,22 +13,33 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 export default props => {
-    const [value, setValue] = useState(false)
-    const [iconStyle, setIconStyle] = useState({name:"check-box-outline-blank", color: commonStyles.colors.onBackground})
+    const [value, setValue] = useState(props.value)
 
     function press(){
         if(value){
-            setIconStyle({name:"check-box-outline-blank", color: commonStyles.colors.onBackground})
             setValue(false)
+            if(props.onChecked){
+                props.onChecked()
+            }
         }else{
-            setIconStyle({name:"check-box", color: commonStyles.colors.primary})
             setValue(true)
+            if(props.onUnchecked){
+                props.onUnchecked()
+            }
+        }
+        if(props.press){
+            props.press()
         }
     }
     return(
         <TouchableWithoutFeedback onPress={()=> press()}>
             <Container>
-                <Icon {...iconStyle} size={24}/>
+                {
+                value ?
+                    <Icon name="check-box" color={commonStyles.colors.primary} size={24}/>
+                    :
+                    <Icon name="check-box-outline-blank" color={commonStyles.colors.onBackground} size={24}/>
+                }          
                 {props.placeHolder != undefined ?
                     <PlaceHolder>{props.placeHolder}</PlaceHolder>
                     :

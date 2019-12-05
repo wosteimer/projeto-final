@@ -18,3 +18,10 @@ export const Logo = styled.Image`
     height: 39;
     margin-bottom: 24
 `
+
+export const ErrorMessage = styled.Text`
+    font-family: Roboto;
+    font-size: 16;
+    color: red;
+    margin-bottom: 24
+`

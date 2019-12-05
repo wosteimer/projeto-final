@@ -94,6 +94,13 @@ export default props => {
             setIcon("visibility")
         }
     }
+
+    function textChanged(value){
+        if(props.onChangeText){
+            props.onChangeText(value)
+        }
+        settextInputValue(value)
+    }
     if(!props.password){
         return(
             <Container style={{borderColor: borderStyle.borderColor, 
@@ -111,7 +118,7 @@ export default props => {
             }}>{props.placeHolder}</Animated.Text>
                 <TextInput onBlur= {() =>{ focusChanged(false) } }
                         onFocus={() =>{ focusChanged(true)  } }
-                        onChangeText={value => settextInputValue(value)}
+                        onChangeText={value => textChanged(value)}
                         style={{fontFamily: "roboto", fontSize: 16, paddingLeft: 8, flex: 1}}
                         keyboardType={props.keyboardType}>{textInputValue}</TextInput>
 
@@ -134,7 +141,7 @@ export default props => {
             }}>{props.placeHolder}</Animated.Text>
                 <TextInput onBlur= {() =>{ focusChanged(false) } }
                            onFocus={() =>{ focusChanged(true)  } }
-                           onChangeText={value => settextInputValue(value)}
+                           onChangeText={value => textChanged(value)}
                            style={{fontFamily: "roboto", fontSize: 16, paddingLeft: 8, flex: 1}}
                            keyboardType={props.keyboardType}
                            secureTextEntry={visibility}>{textInputValue}</TextInput>

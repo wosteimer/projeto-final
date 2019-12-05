@@ -11,6 +11,7 @@ import {
 }from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import { statement } from '@babel/template'
 
 export default props => {
 
@@ -48,6 +49,14 @@ export default props => {
             setIcon("visibility")
         }
     }
+    function changeText(value){
+        settextInputValue(value)
+        if(props.onChangeText){
+            props.onChangeText(value)
+        }
+    }
+
+
     if(!props.password){
         return(
             <Container style={{borderColor: borderStyle.borderColor, 
@@ -56,7 +65,7 @@ export default props => {
                 <TextInput onBlur= {() =>{ focusChanged(false) } }
                         placeholder={props.placeHolder}
                         onFocus={() =>{ focusChanged(true)  } }
-                        onChangeText={value => settextInputValue(value)}
+                        onChangeText={value => changeText(value)}
                         style={{fontFamily: "roboto", fontSize: 16, paddingLeft: 8, flex: 1}}
                         keyboardType={props.keyboardType}>{textInputValue}</TextInput>
 
